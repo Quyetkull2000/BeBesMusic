@@ -17,19 +17,19 @@ import java.util.ArrayList;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyVieHolder> {
 
-    private Context mcontext;
+    private Context mContext;
     private ArrayList<MusicFiles> mFiles;
 
-    MusicAdapter(Context mcontext, ArrayList<MusicFiles> mFiles)
+    MusicAdapter(Context mContext, ArrayList<MusicFiles> mFiles)
     {
         this.mFiles = mFiles;
-        this.mcontext = mcontext;
+        this.mContext = mContext;
     }
 
     @NonNull
     @Override
     public MyVieHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mcontext).inflate(R.layout.music_items, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.music_items, parent, false);
         return new MyVieHolder(view);
     }
 
@@ -39,13 +39,13 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyVieHolder>
         byte[] image = getAlbumArt(mFiles.get(position).getPath());
         if (image != null)
         {
-            Glide.with(mcontext).asBitmap()
+            Glide.with(mContext).asBitmap()
                     .load(image)
                     .into(holder.album_art);
         }
         else
         {
-            Glide.with(mcontext)
+            Glide.with(mContext)
                     .load(R.drawable.bewedoc)
                     .into(holder.album_art);
         }

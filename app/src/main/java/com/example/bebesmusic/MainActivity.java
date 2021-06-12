@@ -113,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
     {
         ArrayList<MusicFiles> tempAudioList = new ArrayList<>();
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        String[] projection = {MediaStore.Audio.Media.ALBUM,
-                               MediaStore.Audio.Media.TITLE,
-                               MediaStore.Audio.Media.DURATION,
-                               MediaStore.Audio.Media.DATA, //FOR PATH
-                               MediaStore.Audio.Media.ARTIST,
+        String[] projection = new String[]
+                {MediaStore.Audio.AudioColumns.ALBUM,
+                               MediaStore.Audio.AudioColumns.TITLE,
+                               MediaStore.Audio.AudioColumns.DURATION,
+                               MediaStore.Audio.AudioColumns.DATA, //FOR PATH
+                               MediaStore.Audio.AudioColumns.ARTIST,
         };
         Cursor cursor = context.getContentResolver().query(uri, projection, null, null, null);
         if (cursor != null)
