@@ -1,6 +1,7 @@
 package com.example.bebesmusic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyVieHolder>
                     .load(R.drawable.bewedoc)
                     .into(holder.album_art);
         }
+          holder.itemView.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent intent= new Intent(mContext, PlayerActivity.class);
+                  intent.putExtra("position", position);
+                  mContext.startActivity(intent);
+              }
+          });
     }
 
     @Override
