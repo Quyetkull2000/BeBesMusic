@@ -21,9 +21,20 @@
         android:layout_toEndOf="@+id/music_img"
         android:layout_marginStart="10dp"
         android:layout_centerVertical="true"
+        android:textColor="@color/design_default_color_background"
         android:id="@+id/music_file_name"
+        android:layout_toStartOf="@+id/menuMore"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/music_img" />
+        android:layout_toRightOf="@+id/music_img"
+        tools:ignore="RtlCompat" />
 
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/menuMore"
+        android:src="@drawable/ic_baseline_more"
+        android:layout_alignParentEnd="true"
+        android:padding="10dp"
+        tools:ignore="RtlCompat" />
 
 </RelativeLayout>
