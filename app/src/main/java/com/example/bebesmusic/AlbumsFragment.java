@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import static com.example.bebesmusic.MainActivity.albums;
 import static com.example.bebesmusic.MainActivity.musicFiles;
 
 /**
@@ -69,9 +70,10 @@ public class AlbumsFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_albums, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        if (!(musicFiles.size() < 1))
+        //Dùng album để tránh lặp file hoặc lặp 2 album
+        if (!(albums.size() < 1))
         {
-            albumAdapter = new AlbumAdapter(getContext(), musicFiles);
+            albumAdapter = new AlbumAdapter(getContext(), albums);
             recyclerView.setAdapter(albumAdapter);
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         }

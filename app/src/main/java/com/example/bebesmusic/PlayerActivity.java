@@ -29,6 +29,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.example.bebesmusic.AlbumDetailsAdapter.albumFiles;
 import static com.example.bebesmusic.MainActivity.musicFiles;
 import static com.example.bebesmusic.MainActivity.repeatBoolean;
 import static com.example.bebesmusic.MainActivity.shuffleBoolean;
@@ -365,7 +366,15 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
 
     private void gtIntentMethod() {
         position= getIntent().getIntExtra("position", -1);
-        listsong = musicFiles;
+        //AlbumDetailAdapter
+        String sender = getIntent().getStringExtra("sender");
+        if (sender != null && sender.equals("albumDetails")){
+            listsong = albumFiles;
+        }
+        else{
+            listsong = musicFiles;
+        }
+
         if (listsong != null){
             playPasuebtn.setImageResource(R.drawable.ic_pause);
             uri = Uri.parse(listsong.get(position).getPath());
