@@ -33,6 +33,7 @@ import static com.example.bebesmusic.AlbumDetailsAdapter.albumFiles;
 import static com.example.bebesmusic.MainActivity.musicFiles;
 import static com.example.bebesmusic.MainActivity.repeatBoolean;
 import static com.example.bebesmusic.MainActivity.shuffleBoolean;
+import static com.example.bebesmusic.MusicAdapter.mFiles;
 
 public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener {
     TextView song_name, artist_name, duration_played, duration_total;
@@ -372,9 +373,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
             listsong = albumFiles;
         }
         else{
-            listsong = musicFiles;
+            listsong = mFiles;
         }
-
         if (listsong != null){
             playPasuebtn.setImageResource(R.drawable.ic_pause);
             uri = Uri.parse(listsong.get(position).getPath());
